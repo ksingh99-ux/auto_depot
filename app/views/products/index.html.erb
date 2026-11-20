@@ -27,3 +27,7 @@
 <% else %>
   <p class="empty">No products found.</p>
 <% end %>
+
+<% if @recently_viewed.any? %>
+  <%= render "recently_viewed", products: @recently_viewed %>
+<% end %>

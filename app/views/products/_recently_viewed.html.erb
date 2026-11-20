@@ -1,0 +1,9 @@
+<section class="recently-viewed">
+  <div class="section-title">
+    <h2>Recently Viewed</h2>
+    <%= button_to "Clear history", clear_recently_viewed_path, method: :delete, class: "btn btn-small" %>
+  </div>
+  <div class="product-grid">
+    <%= render products %>
+  </div>
+</section>
