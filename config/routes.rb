@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   resources :categories, only: %i[show]
   delete "recently_viewed", to: "products#clear_recently_viewed", as: :clear_recently_viewed
 
+  get "about", to: "pages#show", defaults: { slug: "about" }, as: :about
+  get "contact", to: "pages#show", defaults: { slug: "contact" }, as: :contact
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

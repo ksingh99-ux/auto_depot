@@ -73,3 +73,31 @@ end
 
 puts "Created #{Category.count} categories and #{Product.count} products."
 AdminUser.find_or_create_by!(email: 'karan@gmail.com') { |u| u.password = 'password'; u.password_confirmation = 'password' }
+
+Page.find_or_create_by!(slug: "about") do |page|
+  page.title = "About Auto Depot"
+  page.content = <<~TEXT
+    Auto Depot is a family-run auto parts and accessories shop on Pembina Highway in Winnipeg. We have been helping Manitoba drivers since 2006.
+
+    We carry the everyday items drivers need, like floor mats, wiper blades, phone mounts and car care products, plus winter gear such as ice scrapers, booster cables and washer fluid.
+
+    Our team of 11 staff are happy to help you find the right part for your car. Many of our customers are regulars who come back every season, and now you can shop with us online from anywhere in Canada.
+  TEXT
+end
+
+Page.find_or_create_by!(slug: "contact") do |page|
+  page.title = "Contact Us"
+  page.content = <<~TEXT
+    Visit us: Pembina Highway, Winnipeg, Manitoba
+
+    Phone: (204) 555-0142
+    Email: info@autodepot.ca
+
+    Store hours:
+    Monday to Friday: 9:00 AM - 7:00 PM
+    Saturday: 9:00 AM - 5:00 PM
+    Sunday: 11:00 AM - 4:00 PM
+  TEXT
+end
+
+puts "Created #{Page.count} pages."
