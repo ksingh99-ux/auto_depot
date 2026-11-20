@@ -70,3 +70,4 @@ catalog.each do |category_name, data|
 end
 
 puts "Created #{Category.count} categories and #{Product.count} products."
+AdminUser.find_or_create_by!(email: 'karan@gmail.com') { |u| u.password = 'password'; u.password_confirmation = 'password' }
