@@ -1,15 +1,129 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
  *= require_self
  */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #f4f4f4;
+  line-height: 1.5;
+}
+
+a { color: #c0392b; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+/* Header */
+.site-header { background: #1f2a36; padding: 14px 0; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; }
+.logo { color: #fff; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
+.site-header nav a { color: #fff; margin-left: 16px; text-decoration: none; }
+
+main.container { padding-top: 24px; padding-bottom: 40px; min-height: 70vh; }
+
+/* Banner */
+.hero { background: #1f2a36; color: #fff; border-radius: 6px; padding: 28px; margin-bottom: 28px; }
+.hero h1 { margin: 4px 0 8px; }
+.hero p { margin: 0; color: #ddd; }
+.hero .hero-tag { color: #f1948a; font-size: 0.85rem; font-weight: bold; }
+
+.section-title { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.section-title h2 { margin: 0; }
+.section-title span { color: #777; }
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.product-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  background: #e5e5e5;
+  color: #888;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.badge-sale {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #c0392b;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.product-body { display: flex; flex-direction: column; flex: 1; padding: 14px; }
+.product-category { color: #777; font-size: 0.8rem; margin: 0; text-transform: uppercase; }
+.product-body h3 { font-size: 1rem; margin: 4px 0 14px; }
+.product-body h3 a { color: #222; text-decoration: none; }
+
+.product-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+.product-price { font-size: 1.15rem; font-weight: bold; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: #c0392b;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.btn-small { padding: 5px 12px; font-size: 0.9rem; }
+
+/* Product detail */
+.product-detail { position: relative; background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 24px; max-width: 700px; }
+.product-detail h1 { margin: 4px 0 10px; }
+.product-detail .badge-sale { top: 24px; right: 24px; }
+.product-detail .product-price { font-size: 1.5rem; }
+.stock { color: #2e7d32; font-weight: bold; }
+
+/* Footer */
+.site-footer { background: #1f2a36; color: #ccc; padding: 16px 0; font-size: 0.9rem; }
+
+/* Filter bar */
+.filter-bar { display: flex; gap: 8px; margin-bottom: 20px; }
+.filter-bar a {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+}
+.filter-bar a.active { background: #1f2a36; border-color: #1f2a36; color: #fff; }
+
+/* Pagination */
+.pagination { display: flex; justify-content: center; gap: 6px; margin-top: 28px; }
+.pagination a, .pagination .current {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+}
+.pagination .current { background: #c0392b; border-color: #c0392b; color: #fff; }
+.pagination .gap { padding: 6px; }
+
+.empty { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 20px; }

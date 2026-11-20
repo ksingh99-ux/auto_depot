@@ -1,0 +1,17 @@
+<p><%= link_to "← Back to all products", root_path %></p>
+
+<section class="hero">
+  <p class="hero-tag">Category</p>
+  <h1><%= @category.name %></h1>
+  <p><%= @category.description %></p>
+</section>
+
+<div class="section-title">
+  <h2><%= @category.name %> Products</h2>
+  <span><%= @products.total_count %> items</span>
+</div>
+
+<div class="product-grid">
+  <%= render @products %>
+</div>
+<%= paginate @products %>
