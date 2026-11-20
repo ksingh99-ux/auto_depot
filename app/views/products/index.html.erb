@@ -1,0 +1,16 @@
+<section class="hero">
+  <div>
+    <p class="hero-tag">Winnipeg's family auto parts shop since 2006</p>
+    <h1>Auto parts for Manitoba drivers</h1>
+    <p>Floor mats, wiper blades, winter gear and car care products, shipped anywhere in Canada.</p>
+  </div>
+</section>
+
+<div class="section-title">
+  <h2>All Products</h2>
+  <span><%= @products.size %> items</span>
+</div>
+
+<div class="product-grid">
+  <%= render @products %>
+</div>

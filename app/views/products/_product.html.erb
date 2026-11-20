@@ -1,0 +1,18 @@
+<div class="product-card">
+  <%= link_to product, class: "product-image" do %>
+    <span><%= product.category.name %></span>
+  <% end %>
+
+  <% if product.on_sale %>
+    <span class="badge-sale">On Sale</span>
+  <% end %>
+
+  <div class="product-body">
+    <p class="product-category"><%= product.category.name %></p>
+    <h3><%= link_to product.name, product %></h3>
+    <div class="product-footer">
+      <span class="product-price"><%= number_to_currency(product.price) %></span>
+      <%= link_to "View", product, class: "btn btn-small" %>
+    </div>
+  </div>
+</div>
