@@ -1,7 +1,11 @@
 <p><%= link_to "← Back to all products", root_path %></p>
 
 <article class="product-detail">
-  <p class="product-category"><%= @product.category.name %></p>
+  <div class="detail-image">
+    <%= render "products/image", product: @product %>
+  </div>
+
+  <p class="product-category"><%= link_to @product.category.name, category_path(@product.category) %></p>
   <h1><%= @product.name %></h1>
 
   <% if @product.on_sale %>

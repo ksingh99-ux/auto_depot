@@ -141,3 +141,21 @@ button.btn { border: none; cursor: pointer; font-size: 0.9rem; }
 /* About / Contact pages */
 .page-content { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 28px; max-width: 760px; }
 .page-content h1 { margin-top: 0; }
+
+/* Product images */
+.product-image { background: #fff; border-bottom: 1px solid #eee; }
+.product-image img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+.product-image span { color: #888; }
+
+.detail-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  margin-bottom: 20px;
+  background: #f4f4f4;
+  border-radius: 6px;
+  color: #888;
+}
+.detail-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.product-detail .badge-sale { top: 24px; right: 24px; }
