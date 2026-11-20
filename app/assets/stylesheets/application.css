@@ -137,3 +137,7 @@ main.container { padding-top: 24px; padding-bottom: 40px; min-height: 70vh; }
 .recently-viewed { margin-top: 40px; padding-top: 24px; border-top: 1px solid #ddd; }
 .recently-viewed form { margin: 0; }
 button.btn { border: none; cursor: pointer; font-size: 0.9rem; }
+
+/* About / Contact pages */
+.page-content { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 28px; max-width: 760px; }
+.page-content h1 { margin-top: 0; }
