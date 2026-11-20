@@ -1,6 +1,6 @@
 <div class="product-card">
   <%= link_to product, class: "product-image" do %>
-    <span><%= product.category.name %></span>
+    <%= render "products/image", product: product %>
   <% end %>
 
   <% if product.on_sale %>
