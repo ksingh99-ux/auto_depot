@@ -100,3 +100,30 @@ main.container { padding-top: 24px; padding-bottom: 40px; min-height: 70vh; }
 
 /* Footer */
 .site-footer { background: #1f2a36; color: #ccc; padding: 16px 0; font-size: 0.9rem; }
+
+/* Filter bar */
+.filter-bar { display: flex; gap: 8px; margin-bottom: 20px; }
+.filter-bar a {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+}
+.filter-bar a.active { background: #1f2a36; border-color: #1f2a36; color: #fff; }
+
+/* Pagination */
+.pagination { display: flex; justify-content: center; gap: 6px; margin-top: 28px; }
+.pagination a, .pagination .current {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+}
+.pagination .current { background: #c0392b; border-color: #c0392b; color: #fff; }
+.pagination .gap { padding: 6px; }
+
+.empty { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 20px; }

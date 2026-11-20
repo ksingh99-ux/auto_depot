@@ -64,7 +64,9 @@ catalog.each do |category_name, data|
       description: description,
       price: price,
       stock_quantity: stock,
-      on_sale: on_sale
+      on_sale: on_sale,
+      created_at: 30.days.ago,
+      updated_at: 30.days.ago
     )
   end
 end

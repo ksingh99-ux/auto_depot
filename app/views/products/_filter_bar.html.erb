@@ -1,0 +1,5 @@
+<div class="filter-bar">
+  <%= link_to "All Products", root_path, class: ("active" if filter.blank?) %>
+  <%= link_to "On Sale", root_path(filter: "on_sale"), class: ("active" if filter == "on_sale") %>
+  <%= link_to "New Arrivals", root_path(filter: "new"), class: ("active" if filter == "new") %>
+</div>

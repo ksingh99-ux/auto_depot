@@ -8,9 +8,10 @@
 
 <div class="section-title">
   <h2><%= @category.name %> Products</h2>
-  <span><%= @products.size %> items</span>
+  <span><%= @products.total_count %> items</span>
 </div>
 
 <div class="product-grid">
   <%= render @products %>
 </div>
+<%= paginate @products %>
