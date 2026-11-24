@@ -1,0 +1,12 @@
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <% crumbs.each_with_index do |(name, path), index| %>
+    <% if path %>
+      <%= link_to name, path %>
+    <% else %>
+      <span class="current"><%= name %></span>
+    <% end %>
+    <% if index < crumbs.size - 1 %>
+      <span class="separator">›</span>
+    <% end %>
+  <% end %>
+</nav>
