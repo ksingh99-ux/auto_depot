@@ -4,12 +4,15 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :province
+  has_many :orders, dependent: :destroy
 
   validates :first_name, :last_name, presence: true, length: { maximum: 50 }
   validates :address, length: { maximum: 150 }, allow_blank: true
   validates :city, length: { maximum: 80 }, allow_blank: true
   validates :postal_code, allow_blank: true,
             format: { with: /\A[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d\z/, message: "must look like R3T 2N2" }
+
+  validates :address, :city, :postal_code, presence: true, on: :checkout
 
   def full_name
     "#{first_name} #{last_name}"

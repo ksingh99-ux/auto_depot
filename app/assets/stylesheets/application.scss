@@ -520,3 +520,24 @@ button.btn {
   border-radius: $radius - 2;
   margin-bottom: $spacing;
 }
+
+// ===== Invoice =====
+.tax-summary {
+  @extend %card;
+  margin: 0 0 $spacing auto;
+  min-width: 300px;
+  border-collapse: collapse;
+
+  td {
+    padding: ($spacing / 2) $spacing;
+    border-bottom: 1px solid $border;
+
+    &:last-child { text-align: right; }
+  }
+
+  .grand-total td {
+    font-weight: bold;
+    font-size: 1.15rem;
+    border-bottom: none;
+  }
+}

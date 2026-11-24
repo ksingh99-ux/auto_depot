@@ -1,0 +1,30 @@
+<%= render "shared/breadcrumbs", crumbs: [["Home", root_path], ["Cart", cart_path], ["Checkout", nil]] %>
+
+<div class="form-card">
+  <h1>Checkout: Shipping Address</h1>
+  <p>Step 1 of 2. Confirm where we should ship your order. Taxes are based on your province.</p>
+
+  <%= form_with model: @customer, url: checkout_path, method: :patch, scope: :customer do |f| %>
+    <% if @customer.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field"><%= f.label :address, "Street address" %><%= f.text_field :address %></div>
+    <div class="form-row">
+      <div class="field"><%= f.label :city %><%= f.text_field :city %></div>
+      <div class="field"><%= f.label :postal_code %><%= f.text_field :postal_code, placeholder: "R3T 2N2" %></div>
+    </div>
+    <div class="field">
+      <%= f.label :province_id, "Province" %>
+      <%= f.collection_select :province_id, Province.order(:name), :id, :name, prompt: "Choose your province" %>
+    </div>
+
+    <%= f.submit "Continue to invoice", class: "btn" %>
+  <% end %>
+</div>

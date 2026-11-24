@@ -1,0 +1,13 @@
+<table class="tax-summary">
+  <tr><td>Subtotal</td><td><%= number_to_currency(subtotal) %></td></tr>
+  <% if gst_rate.positive? %>
+    <tr><td>GST (<%= number_to_percentage(gst_rate * 100, precision: 3, strip_insignificant_zeros: true) %>)</td><td><%= number_to_currency(gst) %></td></tr>
+  <% end %>
+  <% if pst_rate.positive? %>
+    <tr><td>PST (<%= number_to_percentage(pst_rate * 100, precision: 3, strip_insignificant_zeros: true) %>)</td><td><%= number_to_currency(pst) %></td></tr>
+  <% end %>
+  <% if hst_rate.positive? %>
+    <tr><td>HST (<%= number_to_percentage(hst_rate * 100, precision: 3, strip_insignificant_zeros: true) %>)</td><td><%= number_to_currency(hst) %></td></tr>
+  <% end %>
+  <tr class="grand-total"><td>Total</td><td><%= number_to_currency(total) %></td></tr>
+</table>
