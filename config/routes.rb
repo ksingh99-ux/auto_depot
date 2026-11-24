@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "search", to: "products#search", as: :search
 
   resource :cart, only: %i[show]
-  resources :cart_items, only: %i[create]
+  resources :cart_items, only: %i[create update destroy]
 
   get "about", to: "pages#show", defaults: { slug: "about" }, as: :about
   get "contact", to: "pages#show", defaults: { slug: "contact" }, as: :contact

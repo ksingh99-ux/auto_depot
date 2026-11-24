@@ -421,3 +421,27 @@ button.btn {
 }
 
 .cart-subtotal { font-size: 1.2rem; }
+
+.qty-form {
+  display: flex;
+  gap: $spacing / 4 + 2;
+  align-items: center;
+
+  input[type="number"] {
+    width: 65px;
+    padding: $spacing / 4 + 1;
+    border: 1px solid $border;
+    border-radius: $radius - 2;
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: $dark;
+  border: none;
+  cursor: pointer;
+
+  &:hover { background: lighten($dark, 10%); }
+}
+
+.cart-table form { margin: 0; }
