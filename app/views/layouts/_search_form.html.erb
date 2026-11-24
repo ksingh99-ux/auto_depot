@@ -1,0 +1,7 @@
+<%= form_with url: search_path, method: :get, class: "search-form" do %>
+  <%= text_field_tag :q, params[:q], placeholder: "Search products..." %>
+  <%= select_tag :category_id,
+                 options_from_collection_for_select(nav_categories, :id, :name, params[:category_id]),
+                 include_blank: "All Categories" %>
+  <%= submit_tag "Search", name: nil, class: "btn btn-small" %>
+<% end %>

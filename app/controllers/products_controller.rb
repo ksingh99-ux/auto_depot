@@ -15,6 +15,19 @@ class ProductsController < ApplicationController
     remember_viewed_product(@product.id)
   end
 
+  def search
+    @keyword = params[:q].to_s.strip
+    @category_id = params[:category_id]
+
+    @products = Product.includes(:category).order(:name)
+    if @keyword.present?
+      term = "%#{Product.sanitize_sql_like(@keyword)}%"
+      @products = @products.where("products.name LIKE :term OR products.description LIKE :term", term: term)
+    end
+    @products = @products.where(category_id: @category_id) if @category_id.present?
+    @products = @products.page(params[:page]).per(8)
+  end
+
   def clear_recently_viewed
     session.delete(:recently_viewed)
     redirect_to root_path, notice: "Your recently viewed products have been cleared."
