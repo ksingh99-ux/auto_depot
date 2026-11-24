@@ -1,0 +1,13 @@
+<%= render "shared/breadcrumbs", crumbs: [["Home", root_path], ["Log in", nil]] %>
+
+<div class="form-card">
+  <h1>Log in</h1>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field"><%= f.label :email %><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+    <div class="field"><%= f.label :password %><%= f.password_field :password, autocomplete: "current-password" %></div>
+    <%= f.submit "Log in", class: "btn" %>
+  <% end %>
+
+  <p>New customer? <%= link_to "Create an account", new_customer_registration_path %></p>
+</div>
