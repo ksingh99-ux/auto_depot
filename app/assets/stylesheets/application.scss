@@ -359,3 +359,25 @@ button.btn {
   .separator { color: $muted; }
   .current { color: $text; font-weight: bold; }
 }
+
+// ===== Search form =====
+.search-form {
+  display: flex;
+  gap: $spacing / 2;
+  margin-top: $spacing - 4;
+
+  input[type="text"] {
+    flex: 1;
+    padding: ($spacing / 2) ($spacing - 4);
+    border: 1px solid $border;
+    border-radius: $radius - 2;
+  }
+
+  select {
+    padding: ($spacing / 2) ($spacing - 4);
+    border: 1px solid $border;
+    border-radius: $radius - 2;
+  }
+
+  .btn { border: none; cursor: pointer; }
+}

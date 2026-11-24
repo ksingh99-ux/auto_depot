@@ -1,0 +1,19 @@
+<%= render "shared/breadcrumbs", crumbs: [["Home", root_path], ["Search results", nil]] %>
+
+<div class="section-title">
+  <h2>
+    Search results
+    <% if @keyword.present? %>for "<%= @keyword %>"<% end %>
+    <% if @category_id.present? %>in <%= Category.find_by(id: @category_id)&.name %><% end %>
+  </h2>
+  <span><%= @products.total_count %> items</span>
+</div>
+
+<% if @products.any? %>
+  <div class="product-grid">
+    <%= render @products %>
+  </div>
+  <%= paginate @products %>
+<% else %>
+  <p class="empty">No products found. Try a different word or choose "All Categories".</p>
+<% end %>
