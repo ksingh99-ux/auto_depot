@@ -11,7 +11,17 @@
       <%= link_to "Cart (#{cart_count})", cart_path, class: "cart-link" %>
     </nav>
   </div>
-  <div class="container">
+  <div class="container header-bottom">
     <%= render "layouts/search_form" %>
+    <div class="account-links">
+      <% if customer_signed_in? %>
+        <span>Hi, <%= current_customer.first_name %></span>
+        <%= link_to "My Account", edit_customer_registration_path %>
+        <%= button_to "Log out", destroy_customer_session_path, method: :delete, class: "link-button" %>
+      <% else %>
+        <%= link_to "Log in", new_customer_session_path %>
+        <%= link_to "Sign up", new_customer_registration_path %>
+      <% end %>
+    </div>
   </div>
 </header>

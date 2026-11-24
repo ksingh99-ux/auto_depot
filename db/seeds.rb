@@ -101,3 +101,4 @@ Page.find_or_create_by!(slug: "contact") do |page|
 end
 
 puts "Created #{Page.count} pages."
+load Rails.root.join("db/seeds/provinces.rb")
