@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   delete "recently_viewed", to: "products#clear_recently_viewed", as: :clear_recently_viewed
   get "search", to: "products#search", as: :search
 
+  resource :cart, only: %i[show]
+  resources :cart_items, only: %i[create update destroy]
+
   get "about", to: "pages#show", defaults: { slug: "about" }, as: :about
   get "contact", to: "pages#show", defaults: { slug: "contact" }, as: :contact
 
