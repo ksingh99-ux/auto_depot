@@ -1,0 +1,31 @@
+<%= render "shared/breadcrumbs", crumbs: [["Home", root_path], ["Order ##{@order.id}", nil]] %>
+
+<h1>Order #<%= @order.id %></h1>
+<p>Status: <strong><%= @order.status.capitalize %></strong> · Placed <%= @order.created_at.strftime("%B %-d, %Y") %></p>
+<p>Ship to: <%= @order.customer.full_name %>, <%= @order.address %>, <%= @order.city %>,
+  <%= @order.province_name %> <%= @order.postal_code %></p>
+
+<table class="cart-table">
+  <thead>
+    <tr><th>Product</th><th>Price</th><th>Quantity</th><th>Total</th></tr>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= number_to_currency(item.unit_price) %></td>
+        <td><%= item.quantity %></td>
+        <td><%= number_to_currency(item.line_total) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render "orders/tax_summary",
+           subtotal: @order.subtotal,
+           gst_rate: @order.gst_rate, gst: @order.gst_amount,
+           pst_rate: @order.pst_rate, pst: @order.pst_amount,
+           hst_rate: @order.hst_rate, hst: @order.hst_amount,
+           total: @order.total %>
+
+<%= link_to "Continue shopping", root_path, class: "btn" %>

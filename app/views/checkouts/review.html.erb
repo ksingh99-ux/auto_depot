@@ -1,0 +1,31 @@
+<%= render "shared/breadcrumbs", crumbs: [["Home", root_path], ["Cart", cart_path], ["Checkout", nil]] %>
+
+<h1>Checkout: Review Invoice</h1>
+<p>Step 2 of 2. Ship to: <strong><%= @customer.full_name %></strong>,
+  <%= @customer.address %>, <%= @customer.city %>, <%= @customer.province.name %> <%= @customer.postal_code %>
+  (<%= link_to "change", checkout_path %>)</p>
+
+<table class="cart-table">
+  <thead>
+    <tr><th>Product</th><th>Price</th><th>Quantity</th><th>Total</th></tr>
+  </thead>
+  <tbody>
+    <% @totals.items.each do |item| %>
+      <tr>
+        <td><%= item[:product].name %></td>
+        <td><%= number_to_currency(item[:product].price) %></td>
+        <td><%= item[:quantity] %></td>
+        <td><%= number_to_currency(item[:product].price * item[:quantity]) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render "orders/tax_summary",
+           subtotal: @totals.subtotal,
+           gst_rate: @totals.province.gst_rate, gst: @totals.gst,
+           pst_rate: @totals.province.pst_rate, pst: @totals.pst,
+           hst_rate: @totals.province.hst_rate, hst: @totals.hst,
+           total: @totals.total %>
+
+<%= button_to "Place order", place_order_path, class: "btn" %>

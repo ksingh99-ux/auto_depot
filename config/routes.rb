@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   resource :cart, only: %i[show]
   resources :cart_items, only: %i[create update destroy]
 
+  get "checkout", to: "checkouts#address", as: :checkout
+  patch "checkout", to: "checkouts#update_address"
+  get "checkout/review", to: "checkouts#review", as: :checkout_review
+  post "checkout/place_order", to: "checkouts#create", as: :place_order
+  resources :orders, only: %i[show]
+
   get "about", to: "pages#show", defaults: { slug: "about" }, as: :about
   get "contact", to: "pages#show", defaults: { slug: "contact" }, as: :contact
 

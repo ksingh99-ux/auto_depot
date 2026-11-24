@@ -1,0 +1,7 @@
+class OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
+  def show
+    @order = current_customer.orders.includes(order_items: :product).find(params[:id])
+  end
+end
