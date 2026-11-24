@@ -1,4 +1,4 @@
-<p><%= link_to "← Back to all products", root_path %></p>
+<%= render "shared/breadcrumbs", crumbs: [["Home", root_path], [@category.name, nil]] %>
 
 <section class="hero">
   <p class="hero-tag">Category</p>

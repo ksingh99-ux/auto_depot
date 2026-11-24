@@ -1,4 +1,4 @@
-<p><%= link_to "← Back to all products", root_path %></p>
+<%= render "shared/breadcrumbs", crumbs: [["Home", root_path], [@product.category.name, category_path(@product.category)], [@product.name, nil]] %>
 
 <article class="product-detail">
   <div class="detail-image">

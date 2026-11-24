@@ -341,3 +341,21 @@ button.btn {
   padding: $spacing 0;
   font-size: 0.9rem;
 }
+// ===== Breadcrumbs =====
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing / 2 - 2;
+  margin-bottom: $spacing;
+  font-size: 0.9rem;
+
+  a {
+    color: $red;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
+
+  .separator { color: $muted; }
+  .current { color: $text; font-weight: bold; }
+}
