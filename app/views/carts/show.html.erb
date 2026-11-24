@@ -1,0 +1,31 @@
+<%= render "shared/breadcrumbs", crumbs: [["Home", root_path], ["Cart", nil]] %>
+
+<h1>Your Cart</h1>
+
+<% if @cart_items.any? %>
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |item| %>
+        <tr>
+          <td><%= link_to item[:product].name, item[:product] %></td>
+          <td><%= number_to_currency(item[:product].price) %></td>
+          <td><%= item[:quantity] %></td>
+          <td><%= number_to_currency(item[:product].price * item[:quantity]) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <p class="cart-subtotal">Subtotal: <strong><%= number_to_currency(@subtotal) %></strong></p>
+  <%= link_to "Continue shopping", root_path, class: "btn" %>
+<% else %>
+  <p class="empty">Your cart is empty. <%= link_to "Start shopping", root_path %></p>
+<% end %>

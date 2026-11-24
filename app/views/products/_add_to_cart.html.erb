@@ -1,0 +1,6 @@
+<%= form_with url: cart_items_path, method: :post, class: "add-to-cart" do %>
+  <%= hidden_field_tag :product_id, product.id %>
+  <%= label_tag :quantity, "Qty" %>
+  <%= number_field_tag :quantity, 1, min: 1, max: 99 %>
+  <%= submit_tag "Add to cart", name: nil, class: "btn" %>
+<% end %>

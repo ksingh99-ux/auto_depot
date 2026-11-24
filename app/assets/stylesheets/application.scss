@@ -381,3 +381,43 @@ button.btn {
 
   .btn { border: none; cursor: pointer; }
 }
+
+// ===== Cart =====
+.site-header nav a.cart-link {
+  background: $red;
+  padding: ($spacing / 4) ($spacing / 2 + 2);
+  border-radius: $radius - 2;
+}
+
+.add-to-cart {
+  display: flex;
+  align-items: center;
+  gap: $spacing / 2;
+  margin-top: $spacing;
+
+  input[type="number"] {
+    width: 70px;
+    padding: $spacing / 2 - 2;
+    border: 1px solid $border;
+    border-radius: $radius - 2;
+  }
+
+  .btn { border: none; cursor: pointer; }
+}
+
+.cart-table {
+  @extend %card;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $spacing;
+
+  th, td {
+    padding: ($spacing - 4) $spacing;
+    text-align: left;
+    border-bottom: 1px solid $border;
+  }
+
+  th { background: $page-bg; }
+}
+
+.cart-subtotal { font-size: 1.2rem; }
